@@ -43,12 +43,13 @@ resource "aws_security_group" "allow_all" {
 
 resource "aws_instance" "minikube" {
     ami             = "${data.aws_ami.minikube.id}"
-    instance_type   = "t2.micro"
+    instance_type   = "t2.medium"
     key_name        = "${aws_key_pair.minikube.key_name}"
     security_groups = ["${aws_security_group.allow_all.name}"]
 
     tags {
-        Name = "minikube"
+        Name  = "minikube"
+        Owner = "me"  # change this to easily find the instance
     }
 }
 

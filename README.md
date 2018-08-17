@@ -37,3 +37,16 @@ Then, run:
 sudo -E minikube start --vm-driver=none
 ```
 
+(the previous command might take 1-2 minutes).
+
+Set the minikube context:
+
+```bash
+kubectl config use-context minikube
+```
+
+And then verify that `kubectl` can communicate with the cluster:
+
+```bash
+kubectl cluster-info
+```
